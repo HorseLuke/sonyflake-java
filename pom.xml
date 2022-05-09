@@ -5,14 +5,17 @@
 	<groupId>com.orztip</groupId>
 	<artifactId>flakeidgen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>flakeidgen</name>
 	<description>Unique id generator based on any flake-like algorithm(twitter snowflake, sonyflake, etc)</description>
+	
 	<properties>
 		<java.version>8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -31,6 +34,18 @@
           <configuration>
             <!-- put your configurations here -->
           </configuration>
+        </plugin>
+        
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.2.0</version>
+        </plugin>
+        
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.2.2</version>
         </plugin>
         
         <plugin>
