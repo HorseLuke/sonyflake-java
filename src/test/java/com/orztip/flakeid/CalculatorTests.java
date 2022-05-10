@@ -1,11 +1,12 @@
-package com.orztip.flakeidgen;
+package com.orztip.flakeid;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.orztip.flakeidgen.junit.ProjectTestExtension;
+import com.orztip.flakeid.junit.ProjectTestExtension;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @ExtendWith(ProjectTestExtension.class)

@@ -1,4 +1,4 @@
-package com.orztip.flakeidgen;
+package com.orztip.flakeid;
 
 public class Calculator {
 

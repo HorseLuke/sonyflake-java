@@ -1,4 +1,4 @@
-package com.orztip.flakeidgen.junit;
+package com.orztip.flakeid.junit;
 
 import static org.junit.jupiter.api.extension.ExtensionContext.Namespace.GLOBAL;
 
