@@ -1,4 +1,4 @@
-package com.orztip.flakeid;
+package com.orztip.sonyflake;
 
 public class Calculator {
 

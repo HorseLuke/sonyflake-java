@@ -1,10 +1,10 @@
-package com.orztip.flakeid;
+package com.orztip.sonyflake;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.orztip.flakeid.junit.ProjectTestExtension;
+import com.orztip.sonyflake.junit.ProjectTestExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
