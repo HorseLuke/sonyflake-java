@@ -6,7 +6,7 @@
 	<artifactId>sonyflake</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>flake id generator</name>
+	<name>Sonyflake id generator</name>
 	<description>Unique id generator based on modified sonyflake algorithm</description>
 	
 	<properties>
