@@ -45,6 +45,9 @@ public class Sonyflake {
 		this.initConfigFromProp();
 	}
 	
+	public SonyflakeProperties getProp() {
+		return this.prop;
+	}
 	
 	private void initConfigFromProp() {
 		this.bitAllocationConfig = this.prop.getBitAllocationConfig();
