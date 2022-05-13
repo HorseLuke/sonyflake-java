@@ -50,6 +50,7 @@ public class Sonyflake {
 	}
 	
 	private void initConfigFromProp() {
+		this.prop.enableLock();
 		this.bitAllocationConfig = this.prop.getBitAllocationConfig();
 		this.bitAllocationMaxNumber = this.prop.getBitAllocationMaxNumber();
 		this.startTimestampIn10ms = this.prop.getStartTimestampIn10ms();
@@ -69,7 +70,7 @@ public class Sonyflake {
 		}
 		
 		if(!this.prop.getWaitForNextTimeBitSlotIfUnusual()) {
-			throw new RuntimeException("Clock backward, cant not generate next id");
+			throw new RuntimeException("CAN_NOT_GENERATE_NEXT_ID_BY_CLOCK_BACKWARDED");
 		}
 		
 		return this.nextIdForWaitToNextTime();
@@ -90,7 +91,7 @@ public class Sonyflake {
 		long sequenceBitSlot = this.currentSequenceBitSlot + 1;
 		if(sequenceBitSlot > this.bitAllocationMaxNumber[1]) {
 			if(!this.prop.getWaitForNextTimeBitSlotIfUnusual()) {
-				throw new RuntimeException("Sequence full in current time");
+				throw new RuntimeException("CAN_NOT_GENERATE_NEXT_ID_BY_SEQUENCE_FULL");
 			}
 			return this.nextIdForWaitToNextTime();
 		}

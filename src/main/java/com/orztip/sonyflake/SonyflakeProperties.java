@@ -30,6 +30,8 @@ public class SonyflakeProperties {
 	
 	private boolean waitForNextTimeBitSlotIfUnusual = true;
 	
+	private boolean lock = false;
+	
 	public SonyflakeProperties() {
 		
 	}
@@ -61,6 +63,11 @@ public class SonyflakeProperties {
 	}
 
 	public void setMachineId(long machindId) {
+		
+		if(this.lock) {
+			throw new RuntimeException("This prop has been in used, can not set any more");
+		}
+		
 		if(machindId < 0) {
 			throw new IllegalArgumentException("machine id must greater than or equal to 0");
 		}
@@ -79,11 +86,22 @@ public class SonyflakeProperties {
 	
 	
 	public void setStartTimestampByMilsec(long milsec) {
+
+		if(this.lock) {
+			throw new RuntimeException("This prop has been in used, can not set any more");
+		}
+		
 		this.startTimestampIn10ms = milsec / 10L;
 	}
 	
 	public void setStartTimestampByUnixTimestamp(long sec) {
+
+		if(this.lock) {
+			throw new RuntimeException("This prop has been in used, can not set any more");
+		}
+		
 		this.startTimestampIn10ms = sec * 100L;
+		
 	}
 	
 	public long getStartTimestampIn10ms() {
@@ -113,7 +131,16 @@ public class SonyflakeProperties {
 	}
 	
 	public void setWaitForNextTimeBitSlotIfUnusual(boolean val) {
+
+		if(this.lock) {
+			throw new RuntimeException("This prop has been in used, can not set any more");
+		}
+		
 		this.waitForNextTimeBitSlotIfUnusual = val;
+	}
+	
+	public void enableLock() {
+		this.lock = true;
 	}
 	
 }
