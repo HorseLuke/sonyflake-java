@@ -16,15 +16,15 @@ public class SonyflakePropertiesConfigTests {
 	@Test
 	void testDefaultConstructor() {
 		
-		SonyflakeProperties sf = new SonyflakeProperties();
+		SonyflakeProperties prop = new SonyflakeProperties();
 		
-		int[] config = sf.getBitAllocationConfig();
+		int[] config = prop.getBitAllocationConfig();
 		
 		int[] expectedConfig =  {39, 8, 16};
 		
 		assertEquals(true, Arrays.equals(config, expectedConfig));
 
-		long[] maxNumber = sf.getBitAllocationMaxNumber();
+		long[] maxNumber = prop.getBitAllocationMaxNumber();
 		
 		long[] expectedMaxNumber =  {549755813887L, 255, 65535};
 		
@@ -38,15 +38,15 @@ public class SonyflakePropertiesConfigTests {
 	@Test
 	void testDefaultConstructorWithMoreSequenceBit() {
 		
-		SonyflakeProperties sf = new SonyflakeProperties(14, 10);
+		SonyflakeProperties prop = new SonyflakeProperties(14, 10);
 		
-		int[] config = sf.getBitAllocationConfig();
+		int[] config = prop.getBitAllocationConfig();
 		
 		int[] expectedConfig =  {39, 14, 10};
 		
 		assertEquals(Arrays.toString(expectedConfig), Arrays.toString(config));
 
-		long[] maxNumber = sf.getBitAllocationMaxNumber();
+		long[] maxNumber = prop.getBitAllocationMaxNumber();
 		
 		long[] expectedMaxNumber =  {549755813887L, 16383, 1023};
 		
