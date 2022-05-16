@@ -41,7 +41,7 @@ public class SonyflakeTests {
 					Assertions.fail("duplicated id generated");
 				}
 				data.add(id);
-			} catch (InterruptedException | RuntimeException e) {
+			} catch (RuntimeException e) {
 				Assertions.fail(e);
 			}
 		}
@@ -61,7 +61,7 @@ public class SonyflakeTests {
 					Assertions.fail("duplicated id generated");
 				}
 				data.add(id);
-			} catch (InterruptedException | RuntimeException e) {
+			} catch (RuntimeException e) {
 				Assertions.fail(e);
 			}
 		}
@@ -86,7 +86,7 @@ public class SonyflakeTests {
 					Assertions.fail("duplicated id generated");
 				}
 				data.add(id);
-			} catch (InterruptedException | RuntimeException e) {
+			} catch (RuntimeException e) {
 				if(e.getMessage() == "CAN_NOT_GENERATE_NEXT_ID_BY_SEQUENCE_FULL") {
 					return ;
 				}
