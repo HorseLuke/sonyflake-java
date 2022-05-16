@@ -57,7 +57,7 @@ public class Sonyflake {
 		this.machineId = this.prop.getMachineId();
 	}
 	
-	public synchronized long nextId() throws InterruptedException, RuntimeException {
+	public synchronized long nextId() throws RuntimeException {
 		
 		long time = this.generateTimeBitSlot();
 		
@@ -87,7 +87,7 @@ public class Sonyflake {
 	}
 	
 	
-	private long nextIdForClockRemain(long time) throws InterruptedException {
+	private long nextIdForClockRemain(long time) {
 		
 		long sequenceBitSlot = this.currentSequenceBitSlot + 1;
 		if(sequenceBitSlot > this.bitAllocationMaxNumber[1]) {
@@ -103,7 +103,7 @@ public class Sonyflake {
 	}
 	
 	
-	private long nextIdForWaitToNextTime() throws InterruptedException {
+	private long nextIdForWaitToNextTime() {
 		long time = this.waitToNextGenerateTimeBitSlot();
 		return this.nextIdForClockForward(time);
 	}
@@ -121,11 +121,17 @@ public class Sonyflake {
 	}
 	
 	
-	private long waitToNextGenerateTimeBitSlot() throws InterruptedException {
+	private synchronized long waitToNextGenerateTimeBitSlot() {
 		
 		while(true) {
 			
-			Thread.sleep(10);
+			try {
+				this.wait(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			}
+			
 			long currentTimeBitSlot = this.generateTimeBitSlot();
 			
 			if(currentTimeBitSlot > this.currentTimeBitSlot) {
