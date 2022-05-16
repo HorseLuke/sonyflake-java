@@ -34,7 +34,7 @@ public class Sonyflake {
 	private volatile long currentTimeBitSlot = 0;
 	
 	private volatile long currentSequenceBitSlot = 0;
-		
+	
 	public Sonyflake() {
 		this.prop = new SonyflakeProperties();
 		this.initConfigFromProp();
@@ -66,14 +66,15 @@ public class Sonyflake {
 		}
 		
 		if(time == this.currentTimeBitSlot) {
-			return this.nextIdForClockRemain(time);
+			return this.nextIdForClockRemain(this.currentTimeBitSlot);
 		}
 		
 		if(!this.prop.getWaitForNextTimeBitSlotIfUnusual()) {
-			throw new RuntimeException("CAN_NOT_GENERATE_NEXT_ID_BY_CLOCK_BACKWARDED");
+			throw new RuntimeException("CAN_NOT_GENERATE_NEXT_ID_BY_CLOCK_BACKWARD");
 		}
 		
-		return this.nextIdForWaitToNextTime();
+		//return this.nextIdForWaitToNextTime();
+		return this.nextIdForClockRemain(this.currentTimeBitSlot);
 		
 	}
 	
