@@ -12,14 +12,14 @@ import com.orztip.sonyflake.junit.ProjectTestExtension;
 
 
 @ExtendWith(ProjectTestExtension.class)
-public class SonyflakeTests {
+public class IdGeneratorTests {
 	
 	@Test
 	void testDefault() {
 				
-		Sonyflake sf = new Sonyflake();
+		IdGenerator sf = new IdGenerator();
 		
-		SonyflakeProperties prop = sf.getProp();
+		IdGeneratorProperties prop = sf.getProp();
 		
 		int[] config = prop.getBitAllocationConfig();
 		
@@ -51,7 +51,7 @@ public class SonyflakeTests {
 	@Test
 	void testExceedCounter() {
 				
-		Sonyflake sf = new Sonyflake();
+		IdGenerator sf = new IdGenerator();
 		
 		HashSet<Long> data = new HashSet<Long>();
 		for(int i = 1; i <= 2048; i++) {
@@ -73,10 +73,10 @@ public class SonyflakeTests {
 	void testExceedCounterThrowException() {
 		
 		
-		SonyflakeProperties prop = new SonyflakeProperties();
+		IdGeneratorProperties prop = new IdGeneratorProperties();
 		prop.setWaitForNextTimeBitSlotIfUnusual(false);
 		
-		Sonyflake sf = new Sonyflake(prop);
+		IdGenerator sf = new IdGenerator(prop);
 		
 		HashSet<Long> data = new HashSet<Long>();
 		for(int i = 1; i <= 2048; i++) {
