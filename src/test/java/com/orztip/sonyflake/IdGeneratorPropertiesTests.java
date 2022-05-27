@@ -11,12 +11,12 @@ import com.orztip.sonyflake.junit.ProjectTestExtension;
 
 
 @ExtendWith(ProjectTestExtension.class)
-public class SonyflakePropertiesConfigTests {
+public class IdGeneratorPropertiesTests {
 	
 	@Test
 	void testDefaultConstructor() {
 		
-		SonyflakeProperties prop = new SonyflakeProperties();
+		IdGeneratorProperties prop = new IdGeneratorProperties();
 		
 		int[] config = prop.getBitAllocationConfig();
 		
@@ -38,7 +38,7 @@ public class SonyflakePropertiesConfigTests {
 	@Test
 	void testDefaultConstructorWithMoreSequenceBit() {
 		
-		SonyflakeProperties prop = new SonyflakeProperties(14, 10);
+		IdGeneratorProperties prop = new IdGeneratorProperties(14, 10);
 		
 		int[] config = prop.getBitAllocationConfig();
 		
@@ -58,15 +58,15 @@ public class SonyflakePropertiesConfigTests {
 	void testThrowException() {
 		
 		assertThrowsExactly(IllegalArgumentException.class, () -> {
-			new SonyflakeProperties(14, 11);
+			new IdGeneratorProperties(14, 11);
 		}, "Param lengthSequenceBit + lengthMachineIdBit  should be equal to 24");
 		
 		assertThrowsExactly(IllegalArgumentException.class, () -> {
-			new SonyflakeProperties(-1, 25);
+			new IdGeneratorProperties(-1, 25);
 		}, "Param lengthSequenceBit should be greater than 0");
 		
 		assertThrowsExactly(IllegalArgumentException.class, () -> {
-			new SonyflakeProperties(24, 0);
+			new IdGeneratorProperties(24, 0);
 		}, "Param lengthMachineIdBit should be greater than 0");
 		
 	}
