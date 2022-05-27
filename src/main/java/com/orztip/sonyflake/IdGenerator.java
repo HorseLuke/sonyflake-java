@@ -15,9 +15,9 @@ package com.orztip.sonyflake;
  * @author Horse Luke
  *
  */
-public class Sonyflake {
+public class IdGenerator {
 	
-	private SonyflakeProperties prop;
+	private IdGeneratorProperties prop;
 		
 	private int[] bitAllocationConfig = {0, 0, 0};
 	
@@ -35,17 +35,17 @@ public class Sonyflake {
 	
 	private volatile long currentSequenceBitSlot = 0;
 	
-	public Sonyflake() {
-		this.prop = new SonyflakeProperties();
+	public IdGenerator() {
+		this.prop = new IdGeneratorProperties();
 		this.initConfigFromProp();
 	}
 	
-	public Sonyflake(SonyflakeProperties prop) {
+	public IdGenerator(IdGeneratorProperties prop) {
 		this.prop = prop;
 		this.initConfigFromProp();
 	}
 	
-	public SonyflakeProperties getProp() {
+	public IdGeneratorProperties getProp() {
 		return this.prop;
 	}
 	
@@ -130,6 +130,7 @@ public class Sonyflake {
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
+				System.out.println("com.orztip.sonyflake.IdGenerator encounter InterruptedException in waitToNextGenerateTimeBitSlot, ignoring...");
 			}
 			
 			long currentTimeBitSlot = this.generateTimeBitSlot();

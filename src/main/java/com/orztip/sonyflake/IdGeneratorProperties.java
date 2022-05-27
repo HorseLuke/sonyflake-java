@@ -1,6 +1,6 @@
 package com.orztip.sonyflake;
 
-public class SonyflakeProperties {
+public class IdGeneratorProperties {
 	
 	public static final int LENGTH_TIME_BIT_SLOT = 39;
 	
@@ -32,11 +32,11 @@ public class SonyflakeProperties {
 	
 	private boolean lock = false;
 	
-	public SonyflakeProperties() {
+	public IdGeneratorProperties() {
 		
 	}
 	
-	public SonyflakeProperties(int lengthSequenceBit, int lengthMachineIdBit) {
+	public IdGeneratorProperties(int lengthSequenceBit, int lengthMachineIdBit) {
 		this.setLengthBit(lengthSequenceBit, lengthMachineIdBit);
 	}
 	
