@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.orztip</groupId>
 	<artifactId>sonyflake</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 	<name>Sonyflake id generator</name>
 	<description>Unique id generator based on modified sonyflake algorithm</description>
