@@ -88,7 +88,7 @@ public class IdGeneratorMultiThreadTests {
 		TestCount counter = new TestCount();
 
 		
-		int totalThreads = 1;
+		int totalThreads = 50;
 
 		for(int t = 0; t < totalThreads; t++) {
 			threads.add(new Thread(new IncrRunnable(t, data, sf, counter)));
@@ -100,7 +100,7 @@ public class IdGeneratorMultiThreadTests {
 		
 		
 		long startTime = System.currentTimeMillis();
-		long maxExecuteTime = 5 * 1000L;
+		long maxExecuteTime = 30 * 1000L;
 		
 		while(true) {
 			
