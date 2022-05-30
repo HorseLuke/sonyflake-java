@@ -73,7 +73,6 @@ public class IdGenerator {
 			throw new RuntimeException("CAN_NOT_GENERATE_NEXT_ID_BY_CLOCK_BACKWARD");
 		}
 		
-		//return this.nextIdForWaitToNextTime();
 		return this.nextIdForClockRemain(this.currentTimeBitSlot);
 		
 	}
@@ -121,12 +120,12 @@ public class IdGenerator {
 	}
 	
 	
-	private synchronized long waitToNextGenerateTimeBitSlot() {
+	private long waitToNextGenerateTimeBitSlot() {
 		
 		while(true) {
 			
 			try {
-				this.wait(10);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				//e.printStackTrace();
