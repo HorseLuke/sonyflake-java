@@ -67,7 +67,7 @@ public class IdGeneratorClockBackwardLogic {
 		
 		while(true) {
 			
-			this.wait(10);
+			Thread.sleep(10);
 			long currentTimeBitSlot = this.generateTimeBitSlot();
 			
 			if(currentTimeBitSlot > this.currentTimeBitSlot) {
