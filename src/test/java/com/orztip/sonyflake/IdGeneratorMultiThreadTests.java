@@ -22,7 +22,7 @@ public class IdGeneratorMultiThreadTests {
 			return count;
 		}
 		
-		public void addCount() {
+		public synchronized void addCount() {
 			count++;
 		}
 		
