@@ -19,17 +19,17 @@ public class IdGenerator {
 	
 	private IdGeneratorProperties prop;
 		
-	private int[] bitAllocationConfig = {0, 0, 0};
+	private volatile int[] bitAllocationConfig = {0, 0, 0};
 	
-	private long[] bitAllocationMaxNumber = {0, 0, 0};
+	private volatile long[] bitAllocationMaxNumber = {0, 0, 0};
 	
 	/**
 	 * 起始值（10ms）
 	 * 2014-09-01 00:00:00 +0000 UTC的unix值
 	 */
-	private long startTimestampIn10ms = 1409529600;
+	private volatile long startTimestampIn10ms = 1409529600;
 	
-	private long machineId = 0;
+	private volatile long machineId = 0;
 
 	private volatile long currentTimeBitSlot = 0;
 	

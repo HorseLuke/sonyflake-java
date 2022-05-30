@@ -12,25 +12,25 @@ public class IdGeneratorProperties {
 	
 	public static final int LENGTH_OTHER_BIT_SLOT = 24;
 
-	private int lengthSequenceBit = 8;
+	private volatile int lengthSequenceBit = 8;
 	
-	private long maxNumberSequenceBit = 255;
+	private volatile long maxNumberSequenceBit = 255;
 
-	private int lengthMachineIdBit = 16;
+	private volatile int lengthMachineIdBit = 16;
 	
-	private long maxNumberMachineIdBit = 65535;
+	private volatile long maxNumberMachineIdBit = 65535;
 
 	/**
 	 * 起始值（10ms）
 	 * 2014-09-01 00:00:00 +0000 UTC的unix值
 	 */
-	private long startTimestampIn10ms = 1409529600;
+	private volatile long startTimestampIn10ms = 1409529600;
 	
-	private long machineId = 0;
+	private volatile long machineId = 0;
 	
-	private boolean waitForNextTimeBitSlotIfUnusual = true;
+	private volatile boolean waitForNextTimeBitSlotIfUnusual = true;
 	
-	private boolean lock = false;
+	private volatile boolean lock = false;
 	
 	public IdGeneratorProperties() {
 		
