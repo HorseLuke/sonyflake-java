@@ -16,7 +16,7 @@ public class IdGeneratorMultiThreadTests {
 	
 	private class TestCount{
 		
-		private int count = 0;
+		private volatile int count = 0;
 		
 		public int getCount() {
 			return count;
@@ -106,7 +106,7 @@ public class IdGeneratorMultiThreadTests {
 			
 			int sizeX = counter.getCount();
 			
-			String sizeX3 = String.valueOf(sizeX);  //去掉这句测试不通过
+			//String sizeX3 = String.valueOf(sizeX);  //TestCount的count没有volatile修饰时，去掉这句测试不通过
 			
 			if(sizeX >= totalThreads) {
 				break;
